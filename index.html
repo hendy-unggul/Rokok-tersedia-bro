@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RokokTersedia - Cari Rokok Favorit di Sekitar Anda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/icons/cigarette.svg">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-smoking"></i>
+                    <span>RokokTersedia</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home" class="active"><i class="fas fa-home"></i> Beranda</a>
+                    <a href="#search"><i class="fas fa-search"></i> Cari</a>
+                    <a href="#nearby"><i class="fas fa-map-marker-alt"></i> Terdekat</a>
+                    <a href="#brands"><i class="fas fa-tags"></i> Merek</a>
+                    <a href="#profile" class="profile-btn">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#home" class="active"><i class="fas fa-home"></i> Beranda</a>
+        <a href="#search"><i class="fas fa-search"></i> Cari Rokok</a>
+        <a href="#nearby"><i class="fas fa-map-marker-alt"></i> Toko Terdekat</a>
+        <a href="#brands"><i class="fas fa-tags"></i> Semua Merek</a>
+        <a href="#history"><i class="fas fa-history"></i> Riwayat</a>
+        <a href="#profile"><i class="fas fa-user"></i> Profil</a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Cari Rokok Favorit Anda di Toko Terdekat</h1>
+                    <p>Temukan 50+ merek rokok dari 10 pabrik berbeda di warung dan toko sekitar Anda</p>
+                    
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Cari merek rokok (contoh: Marlboro, Sampoerna, Djarum...)">
+                            <button id="searchBtn">Cari</button>
+                        </div>
+                        <div class="location-picker">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="locationText">Deteksi lokasi otomatis</span>
+                            <button id="locationBtn">Ganti Lokasi</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ilustrasi toko rokok">
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Brands Section -->
+        <section class="popular-brands">
+            <div class="container">
+                <h2><i class="fas fa-fire"></i> Merek Paling Dicari</h2>
+                <div class="brands-grid" id="popularBrands">
+                    <!-- Brands will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Nearby Stores Section -->
+        <section id="nearby" class="nearby-stores">
+            <div class="container">
+                <h2><i class="fas fa-store"></i> Toko Terdekat</h2>
+                <div class="stores-container">
+                    <div class="stores-list" id="storesList">
+                        <!-- Stores will be loaded by JavaScript -->
+                    </div>
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>Peta akan menampilkan toko-toko terdekat</p>
+                            <p class="small">Integrasi Google Maps bisa ditambahkan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Brands Section -->
+        <section id="brands" class="all-brands">
+            <div class="container">
+                <h2><i class="fas fa-list"></i> Semua Merek Tersedia</h2>
+                <div class="filter-brands">
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-filter="all">Semua</button>
+                        <button class="filter-btn" data-filter="sampoerna">Sampoerna</button>
+                        <button class="filter-btn" data-filter="djarum">Djarum</button>
+                        <button class="filter-btn" data-filter="gudang">Gudang Garam</button>
+                        <button class="filter-btn" data-filter="bentoeL">Bentoel</button>
+                        <button class="filter-btn" data-filter="others">Lainnya</button>
+                    </div>
+                </div>
+                <div class="brands-full-grid" id="allBrands">
+                    <!-- All brands will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2><i class="fas fa-question-circle"></i> Cara Menggunakan</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <i class="fas fa-search-location"></i>
+                        <h3>Cari Rokok</h3>
+                        <p>Cari merek rokok favorit Anda</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Lihat Lokasi</h3>
+                        <p>Temukan toko terdekat yang memiliki stok</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <i class="fas fa-directions"></i>
+                        <h3>Dapatkan Petunjuk</h3>
+                        <p>Dapatkan petunjuk arah ke toko tersebut</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <i class="fas fa-shopping-bag"></i>
+                        <h3>Beli Rokok</h3>
+                        <p>Kunjungi toko dan beli rokok favorit Anda</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-smoking"></i> RokokTersedia</h3>
+                    <p>Aplikasi pencari rokok terdekat untuk konsumen Indonesia</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <a href="#home">Beranda</a>
+                    <a href="#search">Cari Rokok</a>
+                    <a href="#nearby">Toko Terdekat</a>
+                    <a href="#brands">Semua Merek</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Untuk Toko</h3>
+                    <a href="#">Daftarkan Toko Anda</a>
+                    <a href="#">Login Toko</a>
+                    <a href="#">Bantuan</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@rokoktersedia.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RokokTersedia. Hak cipta dilindungi. Hanya untuk pengguna dewasa.</p>
+                <p class="disclaimer">Merokok dapat menyebabkan kanker, serangan jantung, impotensi, dan gangguan kehamilan dan janin.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Store Detail Modal -->
+    <div id="storeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="storeDetailContent">
+                <!-- Store details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
