@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RokokTersedia - Cari Rokok Favorit di Sekitar Anda</title>
+    <meta name="description" content="Cari rokok favorit Anda di toko terdekat. Temukan 50+ merek rokok dari 10 pabrik berbeda.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚬</text></svg>">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="assets/icons/cigarette.svg">
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -80,7 +85,7 @@
             <div class="container">
                 <h2><i class="fas fa-fire"></i> Merek Paling Dicari</h2>
                 <div class="brands-grid" id="popularBrands">
-                    <!-- Brands will be loaded by JavaScript -->
+                    <!-- Brands akan dimuat oleh JavaScript -->
                 </div>
             </div>
         </section>
@@ -91,7 +96,7 @@
                 <h2><i class="fas fa-store"></i> Toko Terdekat</h2>
                 <div class="stores-container">
                     <div class="stores-list" id="storesList">
-                        <!-- Stores will be loaded by JavaScript -->
+                        <!-- Toko akan dimuat oleh JavaScript -->
                     </div>
                     <div class="map-container">
                         <div class="map-placeholder">
@@ -114,12 +119,12 @@
                         <button class="filter-btn" data-filter="sampoerna">Sampoerna</button>
                         <button class="filter-btn" data-filter="djarum">Djarum</button>
                         <button class="filter-btn" data-filter="gudang">Gudang Garam</button>
-                        <button class="filter-btn" data-filter="bentoeL">Bentoel</button>
+                        <button class="filter-btn" data-filter="bentoel">Bentoel</button>
                         <button class="filter-btn" data-filter="others">Lainnya</button>
                     </div>
                 </div>
                 <div class="brands-full-grid" id="allBrands">
-                    <!-- All brands will be loaded by JavaScript -->
+                    <!-- Semua merek akan dimuat oleh JavaScript -->
                 </div>
             </div>
         </section>
@@ -204,7 +209,7 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div id="storeDetailContent">
-                <!-- Store details will be loaded here -->
+                <!-- Detail toko akan dimuat di sini -->
             </div>
         </div>
     </div>
