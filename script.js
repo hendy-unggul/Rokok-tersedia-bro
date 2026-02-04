@@ -1,122 +1,102 @@
-// Data Merek Rokok (contoh - 50 merek dari 10 pabrik)
+// Data Merek Rokok
 const cigaretteBrands = [
-    // Sampoerna
-    { id: 1, name: "Sampoerna Mild", factory: "sampoerna", icon: "fas fa-fire", stock: 85 },
-    { id: 2, name: "Sampoerna Kretek", factory: "sampoerna", icon: "fas fa-fire", stock: 72 },
-    { id: 3, name: "A Mild", factory: "sampoerna", icon: "fas fa-fire", stock: 90 },
-    { id: 4, name: "Sampoerna Hijau", factory: "sampoerna", icon: "fas fa-leaf", stock: 65 },
-    { id: 5, name: "U Mild", factory: "sampoerna", icon: "fas fa-fire", stock: 78 },
+    // Sampoerna (Hijau Tosca)
+    { id: 1, name: "Sampoerna Mild", factory: "sampoerna", icon: "fas fa-fire", stock: 85, popular: true },
+    { id: 2, name: "Sampoerna Kretek", factory: "sampoerna", icon: "fas fa-fire", stock: 72, popular: true },
+    { id: 3, name: "A Mild", factory: "sampoerna", icon: "fas fa-fire", stock: 90, popular: true },
+    { id: 4, name: "Sampoerna Hijau", factory: "sampoerna", icon: "fas fa-leaf", stock: 65, popular: false },
+    { id: 5, name: "U Mild", factory: "sampoerna", icon: "fas fa-fire", stock: 78, popular: true },
     
-    // Djarum
-    { id: 6, name: "Djarum Super", factory: "djarum", icon: "fas fa-star", stock: 88 },
-    { id: 7, name: "Djarum Coklat", factory: "djarum", icon: "fas fa-star", stock: 76 },
-    { id: 8, name: "LA Bold", factory: "djarum", icon: "fas fa-bold", stock: 82 },
-    { id: 9, name: "Djarum 76", factory: "djarum", icon: "fas fa-star", stock: 70 },
-    { id: 10, name: "Magnum", factory: "djarum", icon: "fas fa-magnet", stock: 68 },
+    // Djarum (Biru)
+    { id: 6, name: "Djarum Super", factory: "djarum", icon: "fas fa-star", stock: 88, popular: true },
+    { id: 7, name: "Djarum Coklat", factory: "djarum", icon: "fas fa-star", stock: 76, popular: false },
+    { id: 8, name: "LA Bold", factory: "djarum", icon: "fas fa-bold", stock: 82, popular: true },
+    { id: 9, name: "Djarum 76", factory: "djarum", icon: "fas fa-star", stock: 70, popular: false },
+    { id: 10, name: "Magnum", factory: "djarum", icon: "fas fa-magnet", stock: 68, popular: true },
     
-    // Gudang Garam
-    { id: 11, name: "Gudang Garam Surya", factory: "gudang", icon: "fas fa-sun", stock: 92 },
-    { id: 12, name: "Gudang Garam Merah", factory: "gudang", icon: "fas fa-fire", stock: 85 },
-    { id: 13, name: "Gudang Garam Internasional", factory: "gudang", icon: "fas fa-globe", stock: 60 },
-    { id: 14, name: "GG Signature", factory: "gudang", icon: "fas fa-signature", stock: 55 },
-    { id: 15, name: "GG Filter", factory: "gudang", icon: "fas fa-filter", stock: 75 },
+    // Gudang Garam (Kuning)
+    { id: 11, name: "Gudang Garam Surya", factory: "gudang", icon: "fas fa-sun", stock: 92, popular: true },
+    { id: 12, name: "Gudang Garam Merah", factory: "gudang", icon: "fas fa-fire", stock: 85, popular: true },
+    { id: 13, name: "Gudang Garam Internasional", factory: "gudang", icon: "fas fa-globe", stock: 60, popular: false },
+    { id: 14, name: "GG Signature", factory: "gudang", icon: "fas fa-signature", stock: 55, popular: false },
+    { id: 15, name: "GG Filter", factory: "gudang", icon: "fas fa-filter", stock: 75, popular: true },
     
-    // Bentoel
-    { id: 16, name: "Bentoel Biru", factory: "bentoel", icon: "fas fa-tint", stock: 80 },
-    { id: 17, name: "Bentoel Hijau", factory: "bentoel", icon: "fas fa-leaf", stock: 72 },
-    { id: 18, name: "Star Mild", factory: "bentoel", icon: "fas fa-star", stock: 88 },
-    { id: 19, name: "Vintage", factory: "bentoel", icon: "fas fa-wine-bottle", stock: 65 },
-    { id: 20, name: "X Mild", factory: "bentoel", icon: "fas fa-times", stock: 78 },
+    // Bentoel (Merah)
+    { id: 16, name: "Bentoel Biru", factory: "bentoel", icon: "fas fa-tint", stock: 80, popular: true },
+    { id: 17, name: "Bentoel Hijau", factory: "bentoel", icon: "fas fa-leaf", stock: 72, popular: false },
+    { id: 18, name: "Star Mild", factory: "bentoel", icon: "fas fa-star", stock: 88, popular: true },
+    { id: 19, name: "Vintage", factory: "bentoel", icon: "fas fa-wine-bottle", stock: 65, popular: false },
+    { id: 20, name: "X Mild", factory: "bentoel", icon: "fas fa-times", stock: 78, popular: true },
     
     // Lainnya
-    { id: 21, name: "Marlboro Red", factory: "others", icon: "fas fa-flag-usa", stock: 95 },
-    { id: 22, name: "Marlboro Gold", factory: "others", icon: "fas fa-flag-usa", stock: 90 },
-    { id: 23, name: "Lucky Strike", factory: "others", icon: "fas fa-clover", stock: 70 },
-    { id: 24, name: "Camel", factory: "others", icon: "fas fa-camera", stock: 65 },
-    { id: 25, name: "Winston", factory: "others", icon: "fas fa-w", stock: 75 },
-    { id: 26, name: "LA Lights", factory: "others", icon: "fas fa-lightbulb", stock: 80 },
-    { id: 27, name: "Class Mild", factory: "others", icon: "fas fa-graduation-cap", stock: 68 },
-    { id: 28, name: "Philip Morris", factory: "others", icon: "fas fa-building", stock: 72 },
-    { id: 29, name: "Esse", factory: "others", icon: "fas fa-snowflake", stock: 60 },
-    { id: 30, name: "Java", factory: "others", icon: "fas fa-coffee", stock: 55 },
+    { id: 21, name: "Marlboro Red", factory: "lainnya", icon: "fas fa-flag-usa", stock: 95, popular: true },
+    { id: 22, name: "Marlboro Gold", factory: "lainnya", icon: "fas fa-flag-usa", stock: 90, popular: true },
+    { id: 23, name: "Lucky Strike", factory: "lainnya", icon: "fas fa-clover", stock: 70, popular: false },
+    { id: 24, name: "Camel", factory: "lainnya", icon: "fas fa-camel", stock: 65, popular: true },
+    { id: 25, name: "Winston", factory: "lainnya", icon: "fas fa-w", stock: 75, popular: false },
+    { id: 26, name: "LA Lights", factory: "lainnya", icon: "fas fa-lightbulb", stock: 80, popular: true },
+    { id: 27, name: "Class Mild", factory: "lainnya", icon: "fas fa-graduation-cap", stock: 68, popular: false },
+    { id: 28, name: "Philip Morris", factory: "lainnya", icon: "fas fa-building", stock: 72, popular: true },
+    { id: 29, name: "Esse", factory: "lainnya", icon: "fas fa-snowflake", stock: 60, popular: false },
+    { id: 30, name: "Java", factory: "lainnya", icon: "fas fa-coffee", stock: 55, popular: true },
 ];
 
 // Data Toko
 const stores = [
     { 
         id: 1, 
-        name: "Warung Sembako Bahagia", 
-        address: "Jl. Merdeka No. 123, Jakarta Pusat", 
-        distance: "0.5 km", 
-        stock: [
-            { brandId: 1, quantity: 12 },
-            { brandId: 6, quantity: 8 },
-            { brandId: 11, quantity: 15 },
-            { brandId: 21, quantity: 10 }
-        ],
+        name: "Warung Bahagia", 
+        address: "Jl. Merdeka No. 123", 
+        distance: 0.5, 
+        stock: [1, 6, 11, 21],
         open: true,
         rating: 4.5,
-        phone: "081234567890"
+        phone: "081234567890",
+        hours: "08:00 - 22:00"
     },
     { 
         id: 2, 
-        name: "Toko Rokok Makmur", 
-        address: "Jl. Sudirman No. 45, Jakarta Selatan", 
-        distance: "1.2 km", 
-        stock: [
-            { brandId: 2, quantity: 20 },
-            { brandId: 7, quantity: 5 },
-            { brandId: 16, quantity: 18 },
-            { brandId: 22, quantity: 7 }
-        ],
+        name: "Toko Makmur", 
+        address: "Jl. Sudirman No. 45", 
+        distance: 1.2, 
+        stock: [2, 7, 16, 22],
         open: true,
         rating: 4.2,
-        phone: "081234567891"
+        phone: "081234567891",
+        hours: "07:00 - 23:00"
     },
     { 
         id: 3, 
-        name: "Kios Rokok Sejahtera", 
-        address: "Jl. Thamrin No. 89, Jakarta Pusat", 
-        distance: "2.1 km", 
-        stock: [
-            { brandId: 3, quantity: 25 },
-            { brandId: 8, quantity: 12 },
-            { brandId: 17, quantity: 9 },
-            { brandId: 23, quantity: 14 }
-        ],
+        name: "Kios Sejahtera", 
+        address: "Jl. Thamrin No. 89", 
+        distance: 2.1, 
+        stock: [3, 8, 17, 23],
         open: true,
         rating: 4.7,
-        phone: "081234567892"
+        phone: "081234567892",
+        hours: "09:00 - 21:00"
     },
     { 
         id: 4, 
-        name: "Warung Rokok Abadi", 
-        address: "Jl. Gatot Subroto No. 12, Jakarta Selatan", 
-        distance: "3.5 km", 
-        stock: [
-            { brandId: 4, quantity: 8 },
-            { brandId: 9, quantity: 20 },
-            { brandId: 18, quantity: 11 },
-            { brandId: 24, quantity: 6 }
-        ],
+        name: "Warung Abadi", 
+        address: "Jl. Gatot Subroto No. 12", 
+        distance: 3.5, 
+        stock: [4, 9, 18, 24],
         open: false,
         rating: 4.0,
-        phone: "081234567893"
+        phone: "081234567893",
+        hours: "10:00 - 20:00"
     },
     { 
         id: 5, 
         name: "Toko Sinar Jaya", 
-        address: "Jl. Hayam Wuruk No. 67, Jakarta Barat", 
-        distance: "4.2 km", 
-        stock: [
-            { brandId: 5, quantity: 30 },
-            { brandId: 10, quantity: 9 },
-            { brandId: 19, quantity: 13 },
-            { brandId: 25, quantity: 17 }
-        ],
+        address: "Jl. Hayam Wuruk No. 67", 
+        distance: 4.2, 
+        stock: [5, 10, 19, 25],
         open: true,
         rating: 4.3,
-        phone: "081234567894"
+        phone: "081234567894",
+        hours: "08:30 - 22:30"
     }
 ];
 
@@ -124,45 +104,99 @@ const stores = [
 const popularBrandsContainer = document.getElementById('popularBrands');
 const allBrandsContainer = document.getElementById('allBrands');
 const storesListContainer = document.getElementById('storesList');
-const searchInput = document.getElementById('searchInput');
-const searchBtn = document.getElementById('searchBtn');
-const locationBtn = document.getElementById('locationBtn');
-const locationText = document.getElementById('locationText');
-const filterButtons = document.querySelectorAll('.filter-btn');
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileMenu = document.querySelector('.mobile-menu');
+const mainSearchInput = document.getElementById('mainSearch');
+const mainSearchBtn = document.getElementById('mainSearchBtn');
+const clearSearchBtn = document.getElementById('clearSearchBtn');
+const mapToggleBtn = document.getElementById('mapToggleBtn');
+const mapView = document.getElementById('mapView');
 const storeModal = document.getElementById('storeModal');
-const closeModalBtn = document.querySelector('.close-modal');
+const filterModal = document.getElementById('filterModal');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const closeFilterBtn = document.getElementById('closeFilterBtn');
+const fabBtn = document.getElementById('fabBtn');
+const filterChips = document.querySelectorAll('.filter-chip');
+const factoryButtons = document.querySelectorAll('.factory-btn');
+const sortSelect = document.getElementById('sortBrands');
+const priceRange = document.getElementById('priceRange');
+const currentPrice = document.getElementById('currentPrice');
+const applyFilterBtn = document.getElementById('applyFilterBtn');
+const resetFilterBtn = document.getElementById('resetFilterBtn');
 
-// Initialize the app
+// Initialize App
 document.addEventListener('DOMContentLoaded', function() {
+    initApp();
+});
+
+function initApp() {
     loadPopularBrands();
     loadAllBrands();
     loadStores();
     setupEventListeners();
-});
+    setupBottomNav();
+}
 
-// Load popular brands (top 8)
+// Setup Bottom Navigation
+function setupBottomNav() {
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('section');
+    
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            
+            navItems.forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+            
+            if (targetId) {
+                const targetSection = document.getElementById(targetId) || 
+                                    document.querySelector(`.section-${targetId}`);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+    
+    // Update active nav on scroll
+    window.addEventListener('scroll', function() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 100)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href').substring(1) === current) {
+                item.classList.add('active');
+            }
+        });
+    });
+}
+
+// Load Popular Brands
 function loadPopularBrands() {
-    const popular = [...cigaretteBrands]
-        .sort((a, b) => b.stock - a.stock)
-        .slice(0, 8);
+    const popularBrands = cigaretteBrands.filter(brand => brand.popular);
     
     popularBrandsContainer.innerHTML = '';
     
-    popular.forEach(brand => {
+    popularBrands.forEach(brand => {
         const brandCard = document.createElement('div');
-        brandCard.className = 'brand-card';
+        brandCard.className = 'brand-card-popular';
         brandCard.innerHTML = `
-            <div class="brand-icon">
+            <div class="brand-icon-popular">
                 <i class="${brand.icon}"></i>
             </div>
-            <div class="brand-name">${brand.name}</div>
-            <div class="brand-stock">${brand.stock}% tersedia</div>
+            <div class="brand-name-popular">${brand.name}</div>
+            <div class="brand-stock-popular">${brand.stock}% tersedia</div>
         `;
         
-        brandCard.addEventListener('click', function() {
-            searchInput.value = brand.name;
+        brandCard.addEventListener('click', () => {
+            mainSearchInput.value = brand.name;
             performSearch();
         });
         
@@ -170,387 +204,475 @@ function loadPopularBrands() {
     });
 }
 
-// Load all brands
-function loadAllBrands(filter = 'all') {
-    allBrandsContainer.innerHTML = '';
+// Load All Brands
+function loadAllBrands(filter = 'all', sortBy = 'name') {
+    let filteredBrands = [...cigaretteBrands];
     
-    let filteredBrands = cigaretteBrands;
-    
+    // Apply factory filter
     if (filter !== 'all') {
-        filteredBrands = cigaretteBrands.filter(brand => brand.factory === filter);
+        filteredBrands = filteredBrands.filter(brand => brand.factory === filter);
     }
+    
+    // Apply sorting
+    filteredBrands.sort((a, b) => {
+        switch(sortBy) {
+            case 'name':
+                return a.name.localeCompare(b.name);
+            case 'popular':
+                return (b.popular ? 1 : 0) - (a.popular ? 1 : 0);
+            case 'stock':
+                return b.stock - a.stock;
+            default:
+                return a.name.localeCompare(b.name);
+        }
+    });
+    
+    allBrandsContainer.innerHTML = '';
     
     filteredBrands.forEach(brand => {
         const brandCard = document.createElement('div');
-        brandCard.className = 'brand-full-card';
-        brandCard.setAttribute('data-factory', brand.factory);
+        brandCard.className = 'brand-card-full';
         brandCard.innerHTML = `
-            <div class="brand-full-icon">
+            <div class="brand-icon-full">
                 <i class="${brand.icon}"></i>
             </div>
-            <div class="brand-name">${brand.name}</div>
-            <div class="brand-stock ${brand.stock < 30 ? 'out' : ''}">
-                ${brand.stock < 30 ? 'Stok terbatas' : `${brand.stock}% tersedia`}
-            </div>
-            <button class="find-store-btn" data-brand="${brand.name}">
+            <div class="brand-name-full">${brand.name}</div>
+            <div class="brand-factory">${getFactoryName(brand.factory)}</div>
+            <button class="brand-action-btn" data-brand="${brand.name}">
                 <i class="fas fa-store"></i> Cari Toko
             </button>
         `;
         
-        const findBtn = brandCard.querySelector('.find-store-btn');
-        findBtn.addEventListener('click', function() {
-            searchInput.value = brand.name;
+        const actionBtn = brandCard.querySelector('.brand-action-btn');
+        actionBtn.addEventListener('click', () => {
+            mainSearchInput.value = brand.name;
             performSearch();
-            document.querySelector('#nearby').scrollIntoView({ behavior: 'smooth' });
+            scrollToSection('nearby');
         });
         
         allBrandsContainer.appendChild(brandCard);
     });
 }
 
-// Load stores
-function loadStores() {
+// Get Factory Name
+function getFactoryName(factoryCode) {
+    const factories = {
+        'sampoerna': 'Sampoerna',
+        'djarum': 'Djarum',
+        'gudang': 'Gudang Garam',
+        'bentoel': 'Bentoel',
+        'lainnya': 'Lainnya'
+    };
+    return factories[factoryCode] || factoryCode;
+}
+
+// Load Stores
+function loadStores(filter = 'all') {
+    let filteredStores = [...stores];
+    
+    // Apply quick filter
+    if (filter === 'terdekat') {
+        filteredStores.sort((a, b) => a.distance - b.distance);
+    }
+    
     storesListContainer.innerHTML = '';
     
-    stores.forEach(store => {
-        const brandCount = store.stock.length;
+    filteredStores.forEach(store => {
+        const brandsInStore = store.stock.map(id => 
+            cigaretteBrands.find(b => b.id === id)
+        ).filter(b => b);
         
         const storeCard = document.createElement('div');
-        storeCard.className = 'store-card';
+        storeCard.className = 'store-card-list';
         storeCard.innerHTML = `
-            <div class="store-icon">
-                <i class="fas fa-store"></i>
-            </div>
-            <div class="store-info">
-                <div class="store-name">
-                    ${store.name}
-                    <span class="store-status ${store.open ? 'open' : 'closed'}">
-                        ${store.open ? '● Buka' : '● Tutup'}
-                    </span>
-                </div>
-                <div class="store-address">
-                    <i class="fas fa-map-marker-alt"></i> ${store.address}
-                </div>
-                <div class="store-distance">
-                    <i class="fas fa-walking"></i> ${store.distance}
-                </div>
-                <div class="store-stock">
-                    <i class="fas fa-boxes"></i> ${brandCount} merek tersedia
-                </div>
-                <div class="store-rating">
-                    <i class="fas fa-star" style="color: #f1c40f;"></i> ${store.rating}
+            <div class="store-header">
+                <div class="store-name">${store.name}</div>
+                <div class="store-status ${store.open ? 'open' : 'closed'}">
+                    ${store.open ? 'BUKA' : 'TUTUP'}
                 </div>
             </div>
-            <div class="store-action">
-                <i class="fas fa-chevron-right"></i>
+            <div class="store-address">
+                <i class="fas fa-map-marker-alt"></i> ${store.address}
+            </div>
+            <div class="store-details">
+                <div class="store-detail-item">
+                    <i class="fas fa-walking"></i>
+                    <span>${store.distance} km</span>
+                </div>
+                <div class="store-detail-item">
+                    <i class="fas fa-star"></i>
+                    <span>${store.rating}</span>
+                </div>
+                <div class="store-detail-item">
+                    <i class="fas fa-clock"></i>
+                    <span>${store.hours}</span>
+                </div>
+            </div>
+            <div class="store-stock-info">
+                <i class="fas fa-boxes"></i>
+                <span>${brandsInStore.length} merek tersedia</span>
             </div>
         `;
         
-        storeCard.addEventListener('click', function() {
-            showStoreDetails(store);
-        });
-        
+        storeCard.addEventListener('click', () => showStoreModal(store, brandsInStore));
         storesListContainer.appendChild(storeCard);
     });
 }
 
-// Show store details in modal
-function showStoreDetails(store) {
-    const brandDetails = store.stock.map(item => {
-        const brand = cigaretteBrands.find(b => b.id === item.brandId);
-        return brand ? `${brand.name} (${item.quantity} pack)` : '';
-    }).filter(name => name !== '');
+// Show Store Modal
+function showStoreModal(store, brands) {
+    const modalTitle = document.getElementById('storeModalTitle');
+    const modalBody = document.getElementById('storeModalBody');
     
-    const modalContent = document.getElementById('storeDetailContent');
-    modalContent.innerHTML = `
-        <h2>${store.name}</h2>
-        <div class="store-detail-info">
-            <p><i class="fas fa-map-marker-alt"></i> <strong>Alamat:</strong> ${store.address}</p>
-            <p><i class="fas fa-walking"></i> <strong>Jarak:</strong> ${store.distance}</p>
-            <p><i class="fas fa-clock"></i> <strong>Status:</strong> <span class="${store.open ? 'open' : 'closed'}">${store.open ? 'Buka' : 'Tutup'}</span></p>
-            <p><i class="fas fa-star"></i> <strong>Rating:</strong> ${store.rating}/5.0</p>
-            <p><i class="fas fa-phone"></i> <strong>Telepon:</strong> ${store.phone}</p>
+    modalTitle.textContent = store.name;
+    
+    const brandList = brands.map(brand => 
+        `<div class="brand-item">
+            <i class="fas fa-check-circle" style="color: var(--success);"></i>
+            <span>${brand.name}</span>
+        </div>`
+    ).join('');
+    
+    modalBody.innerHTML = `
+        <div class="store-info-modal">
+            <div class="info-row">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <div class="info-label">Alamat</div>
+                    <div class="info-value">${store.address}</div>
+                </div>
+            </div>
+            <div class="info-row">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <div class="info-label">Telepon</div>
+                    <div class="info-value">${store.phone}</div>
+                </div>
+            </div>
+            <div class="info-row">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <div class="info-label">Jam Buka</div>
+                    <div class="info-value">${store.hours}</div>
+                </div>
+            </div>
+            <div class="info-row">
+                <i class="fas fa-star"></i>
+                <div>
+                    <div class="info-label">Rating</div>
+                    <div class="info-value">${store.rating}/5.0</div>
+                </div>
+            </div>
         </div>
         
-        <h3>Stok Rokok di Toko Ini</h3>
-        <div class="store-stock-list">
-            ${brandDetails.map(brand => `<div class="stock-item"><i class="fas fa-check-circle"></i> ${brand}</div>`).join('')}
-        </div>
-        
-        <div class="store-actions">
-            <button class="btn-primary" onclick="getDirections('${store.address}')">
-                <i class="fas fa-directions"></i> Dapatkan Petunjuk Arah
-            </button>
-            <button class="btn-secondary" onclick="callStore('${store.phone}')">
-                <i class="fas fa-phone"></i> Telepon Toko
-            </button>
+        <div class="brands-in-store">
+            <h4>Rokok yang Tersedia</h4>
+            <div class="brands-list">
+                ${brandList}
+            </div>
         </div>
         
         <div class="store-note">
-            <p><i class="fas fa-info-circle"></i> Stok dapat berubah sewaktu-waktu. Disarankan untuk menghubungi toko terlebih dahulu.</p>
+            <i class="fas fa-info-circle"></i>
+            <span>Stok dapat berubah sewaktu-waktu. Disarankan untuk menghubungi toko sebelum berkunjung.</span>
         </div>
     `;
+    
+    // Update modal buttons
+    const callBtn = document.getElementById('callStoreBtn');
+    const directionsBtn = document.getElementById('directionsBtn');
+    
+    callBtn.onclick = () => callStore(store.phone);
+    directionsBtn.onclick = () => getDirections(store.address);
     
     storeModal.style.display = 'flex';
 }
 
-// Get directions (simulated)
-function getDirections(address) {
-    alert(`Fitur petunjuk arah akan membuka Google Maps dengan alamat:\n${address}\n\nDi aplikasi produksi, ini akan membuka Google Maps dengan koordinat toko.`);
-    storeModal.style.display = 'none';
-}
-
-// Call store (simulated)
-function callStore(phone) {
-    alert(`Memanggil toko: ${phone}\n\nDi aplikasi mobile, ini akan membuka aplikasi telepon.`);
-}
-
-// Perform search
+// Perform Search
 function performSearch() {
-    const query = searchInput.value.trim().toLowerCase();
+    const query = mainSearchInput.value.trim().toLowerCase();
     
-    if (query === '') {
+    if (!query) {
         loadStores();
         return;
     }
     
+    // Filter stores that have the searched brand
     const filteredStores = stores.filter(store => {
-        return store.stock.some(stockItem => {
-            const brand = cigaretteBrands.find(b => b.id === stockItem.brandId);
+        return store.stock.some(brandId => {
+            const brand = cigaretteBrands.find(b => b.id === brandId);
             return brand && brand.name.toLowerCase().includes(query);
         });
     });
     
-    storesListContainer.innerHTML = '';
-    
     if (filteredStores.length === 0) {
         storesListContainer.innerHTML = `
-            <div class="no-results">
-                <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 20px;"></i>
-                <h3>Tidak ditemukan toko dengan rokok "${query}"</h3>
-                <p>Coba cari dengan merek lain atau periksa ejaan</p>
+            <div class="error-message">
+                <i class="fas fa-search"></i>
+                <h4>Tidak ditemukan toko dengan rokok "${query}"</h4>
+                <p>Coba cari dengan merek lain atau filter yang berbeda.</p>
             </div>
         `;
         return;
     }
     
+    loadStoresWithFilter(filteredStores, query);
+}
+
+// Load Stores with Highlight
+function loadStoresWithFilter(filteredStores, query) {
+    storesListContainer.innerHTML = '';
+    
     filteredStores.forEach(store => {
-        const matchingStock = store.stock.find(stockItem => {
-            const brand = cigaretteBrands.find(b => b.id === stockItem.brandId);
-            return brand && brand.name.toLowerCase().includes(query);
-        });
+        const brandsInStore = store.stock.map(id => 
+            cigaretteBrands.find(b => b.id === id)
+        ).filter(b => b);
         
-        const brand = cigaretteBrands.find(b => b.id === matchingStock.brandId);
-        const brandCount = store.stock.length;
+        const matchingBrand = brandsInStore.find(brand => 
+            brand.name.toLowerCase().includes(query)
+        );
         
         const storeCard = document.createElement('div');
-        storeCard.className = 'store-card';
+        storeCard.className = 'store-card-list';
         storeCard.innerHTML = `
-            <div class="store-icon">
-                <i class="fas fa-store"></i>
-            </div>
-            <div class="store-info">
-                <div class="store-name">
-                    ${store.name}
-                    <span class="store-status ${store.open ? 'open' : 'closed'}">
-                        ${store.open ? '● Buka' : '● Tutup'}
-                    </span>
-                </div>
-                <div class="store-address">
-                    <i class="fas fa-map-marker-alt"></i> ${store.address}
-                </div>
-                <div class="store-distance">
-                    <i class="fas fa-walking"></i> ${store.distance}
-                </div>
-                <div class="store-stock">
-                    <i class="fas fa-boxes"></i> ${brandCount} merek tersedia
-                    <div class="highlighted-brand">
-                        <i class="fas fa-check"></i> ${brand.name}: ${matchingStock.quantity} pack tersedia
-                    </div>
+            <div class="store-header">
+                <div class="store-name">${store.name}</div>
+                <div class="store-status ${store.open ? 'open' : 'closed'}">
+                    ${store.open ? 'BUKA' : 'TUTUP'}
                 </div>
             </div>
-            <div class="store-action">
-                <i class="fas fa-chevron-right"></i>
+            <div class="store-address">
+                <i class="fas fa-map-marker-alt"></i> ${store.address}
+            </div>
+            <div class="store-details">
+                <div class="store-detail-item">
+                    <i class="fas fa-walking"></i>
+                    <span>${store.distance} km</span>
+                </div>
+                <div class="store-detail-item">
+                    <i class="fas fa-star"></i>
+                    <span>${store.rating}</span>
+                </div>
+            </div>
+            <div class="store-stock-info highlight">
+                <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                <span>${matchingBrand ? matchingBrand.name : brandsInStore[0].name}</span>
+                <span class="stock-badge">Tersedia</span>
             </div>
         `;
         
-        storeCard.addEventListener('click', function() {
-            showStoreDetails(store);
-        });
-        
+        storeCard.addEventListener('click', () => showStoreModal(store, brandsInStore));
         storesListContainer.appendChild(storeCard);
     });
-    
-    document.querySelector('#nearby').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Setup event listeners
+// Utility Functions
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId) || 
+                   document.querySelector(`.section-${sectionId}`);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function callStore(phone) {
+    alert(`Memanggil: ${phone}\n\nDi aplikasi mobile, ini akan membuka aplikasi telepon.`);
+    storeModal.style.display = 'none';
+}
+
+function getDirections(address) {
+    alert(`Petunjuk arah ke:\n${address}\n\nDi aplikasi produksi, ini akan membuka Google Maps.`);
+    storeModal.style.display = 'none';
+}
+
+// Setup Event Listeners
 function setupEventListeners() {
-    searchBtn.addEventListener('click', performSearch);
+    // Search functionality
+    mainSearchBtn.addEventListener('click', performSearch);
     
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            performSearch();
-        }
+    mainSearchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') performSearch();
     });
     
-    locationBtn.addEventListener('click', function() {
-        locationText.textContent = "Jakarta Pusat (Ditetapkan manual)";
-        alert("Fitur deteksi lokasi akan aktif di aplikasi produksi. Saat ini lokasi diatur ke Jakarta Pusat.");
+    clearSearchBtn.addEventListener('click', () => {
+        mainSearchInput.value = '';
+        loadStores();
     });
     
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            const filter = this.getAttribute('data-filter');
-            loadAllBrands(filter);
-        });
+    // Map toggle
+    mapToggleBtn.addEventListener('click', () => {
+        mapView.style.display = mapView.style.display === 'none' ? 'block' : 'none';
+        mapToggleBtn.innerHTML = mapView.style.display === 'none' ? 
+            '<i class="fas fa-map"></i> Peta' : 
+            '<i class="fas fa-list"></i> List';
     });
     
-    mobileMenuBtn.addEventListener('click', function() {
-        mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
-    
-    closeModalBtn.addEventListener('click', function() {
+    // Modal controls
+    closeModalBtn.addEventListener('click', () => {
         storeModal.style.display = 'none';
     });
     
-    window.addEventListener('click', function(event) {
-        if (event.target === storeModal) {
-            storeModal.style.display = 'none';
-        }
+    closeFilterBtn.addEventListener('click', () => {
+        filterModal.style.display = 'none';
     });
     
-    document.querySelectorAll('.mobile-menu a').forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenu.style.display = 'none';
+    fabBtn.addEventListener('click', () => {
+        filterModal.style.display = 'flex';
+    });
+    
+    // Close modals when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === storeModal) storeModal.style.display = 'none';
+        if (e.target === filterModal) filterModal.style.display = 'none';
+    });
+    
+    // Filter chips
+    filterChips.forEach(chip => {
+        chip.addEventListener('click', function() {
+            filterChips.forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            loadStores(filter);
         });
     });
     
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+    // Factory buttons
+    factoryButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            factoryButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
-            }
+            const factory = this.getAttribute('data-factory');
+            loadAllBrands(factory, sortSelect.value);
+        });
+    });
+    
+    // Sort select
+    sortSelect.addEventListener('change', function() {
+        const activeFactory = document.querySelector('.factory-btn.active');
+        const factory = activeFactory ? activeFactory.getAttribute('data-factory') : 'all';
+        loadAllBrands(factory, this.value);
+    });
+    
+    // Price range slider
+    priceRange.addEventListener('input', function() {
+        const price = parseInt(this.value).toLocaleString('id-ID');
+        currentPrice.textContent = `Rp ${price}`;
+    });
+    
+    // Filter modal buttons
+    applyFilterBtn.addEventListener('click', () => {
+        alert('Filter diterapkan!');
+        filterModal.style.display = 'none';
+    });
+    
+    resetFilterBtn.addEventListener('click', () => {
+        priceRange.value = 30000;
+        currentPrice.textContent = 'Rp 30.000';
+        document.querySelectorAll('.distance-option').forEach(opt => 
+            opt.classList.remove('active')
+        );
+        document.querySelector('.distance-option').classList.add('active');
+        alert('Filter direset!');
+    });
+    
+    // Distance options
+    document.querySelectorAll('.distance-option').forEach(opt => {
+        opt.addEventListener('click', function() {
+            document.querySelectorAll('.distance-option').forEach(o => 
+                o.classList.remove('active')
+            );
+            this.classList.add('active');
         });
     });
 }
 
-// Add CSS for dynamic elements
-const style = document.createElement('style');
-style.textContent = `
-    .store-detail-info {
-        background-color: var(--light-gray);
-        padding: 20px;
-        border-radius: var(--radius);
-        margin: 20px 0;
+// Add CSS for modal content
+const modalStyles = document.createElement('style');
+modalStyles.textContent = `
+    .store-info-modal {
+        margin-bottom: var(--spacing-xl);
     }
     
-    .store-detail-info p {
-        margin-bottom: 10px;
+    .info-row {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .info-row i {
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin-top: 2px;
+    }
+    
+    .info-label {
+        font-size: 0.85rem;
+        color: var(--gray);
+        margin-bottom: 2px;
+    }
+    
+    .info-value {
+        font-weight: 500;
+        color: var(--secondary);
+    }
+    
+    .brands-in-store {
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .brands-in-store h4 {
+        margin-bottom: var(--spacing-md);
+        color: var(--secondary);
+    }
+    
+    .brands-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .brand-item {
         display: flex;
         align-items: center;
-        gap: 10px;
-    }
-    
-    .store-stock-list {
-        margin: 20px 0;
-    }
-    
-    .stock-item {
-        padding: 10px;
-        background-color: var(--light-gray);
-        margin-bottom: 10px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .store-actions {
-        display: flex;
-        gap: 10px;
-        margin: 25px 0;
-    }
-    
-    .btn-primary, .btn-secondary {
-        flex: 1;
-        padding: 15px;
-        border-radius: var(--radius);
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-    
-    .btn-primary {
-        background-color: var(--primary);
-        color: white;
-    }
-    
-    .btn-primary:hover {
-        background-color: var(--primary-dark);
-    }
-    
-    .btn-secondary {
-        background-color: var(--light);
-        color: var(--dark);
-        border: 1px solid var(--gray);
-    }
-    
-    .btn-secondary:hover {
-        background-color: #e0e0e0;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm);
+        background: var(--light-gray);
+        border-radius: var(--radius-sm);
     }
     
     .store-note {
-        background-color: #fff8e1;
-        padding: 15px;
-        border-radius: var(--radius);
-        border-left: 4px solid var(--accent);
-        font-size: 0.9rem;
-    }
-    
-    .highlighted-brand {
-        background-color: #e8f5e9;
-        padding: 8px 12px;
-        border-radius: 5px;
-        margin-top: 8px;
-        font-size: 0.9rem;
-        color: var(--success);
+        background: #fff8e1;
+        padding: var(--spacing-md);
+        border-radius: var(--radius-md);
         display: flex;
-        align-items: center;
-        gap: 8px;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+        font-size: 0.9rem;
+        color: #856404;
     }
     
-    .no-results {
-        text-align: center;
-        padding: 40px 20px;
-        background-color: white;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
+    .store-note i {
+        color: #ffc107;
+        margin-top: 2px;
     }
     
-    @media (max-width: 768px) {
-        .store-actions {
-            flex-direction: column;
-        }
+    .highlight {
+        background: var(--primary-light) !important;
+        border: 1px solid var(--primary) !important;
+    }
+    
+    .stock-badge {
+        background: var(--success);
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin-left: auto;
     }
 `;
 
-document.head.appendChild(style);
+document.head.appendChild(modalStyles);
