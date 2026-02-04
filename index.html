@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RokokTersedia - Cari Rokok Favorit di Sekitar Anda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RokokTersedia - Cari Rokok Terdekat</title>
     <meta name="description" content="Cari rokok favorit Anda di toko terdekat. Temukan 50+ merek rokok dari 10 pabrik berbeda.">
     
     <!-- Favicon -->
@@ -14,202 +14,293 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
+    <!-- Bottom Navigation for Mobile -->
+    <nav class="bottom-nav">
+        <a href="#home" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Beranda</span>
+        </a>
+        <a href="#search" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Cari</span>
+        </a>
+        <a href="#nearby" class="nav-item">
+            <i class="fas fa-store"></i>
+            <span>Toko</span>
+        </a>
+        <a href="#brands" class="nav-item">
+            <i class="fas fa-tags"></i>
+            <span>Merek</span>
+        </a>
+        <a href="#profile" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profil</span>
+        </a>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
                 <div class="logo">
                     <i class="fas fa-smoking"></i>
                     <span>RokokTersedia</span>
                 </div>
-                <div class="nav-links">
-                    <a href="#home" class="active"><i class="fas fa-home"></i> Beranda</a>
-                    <a href="#search"><i class="fas fa-search"></i> Cari</a>
-                    <a href="#nearby"><i class="fas fa-map-marker-alt"></i> Terdekat</a>
-                    <a href="#brands"><i class="fas fa-tags"></i> Merek</a>
-                    <a href="#profile" class="profile-btn">
-                        <i class="fas fa-user"></i>
-                    </a>
+                <div class="header-actions">
+                    <button class="icon-btn" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <button class="icon-btn" id="locationToggle">
+                        <i class="fas fa-location-arrow"></i>
+                    </button>
                 </div>
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
+            </div>
+            
+            <!-- Location Bar -->
+            <div class="location-bar">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="currentLocation">Jakarta Pusat</span>
+                <button class="change-location">Ubah</button>
+            </div>
+        </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <a href="#home" class="active"><i class="fas fa-home"></i> Beranda</a>
-        <a href="#search"><i class="fas fa-search"></i> Cari Rokok</a>
-        <a href="#nearby"><i class="fas fa-map-marker-alt"></i> Toko Terdekat</a>
-        <a href="#brands"><i class="fas fa-tags"></i> Semua Merek</a>
-        <a href="#history"><i class="fas fa-history"></i> Riwayat</a>
-        <a href="#profile"><i class="fas fa-user"></i> Profil</a>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Search Section -->
+            <section id="home" class="hero-search">
+                <div class="welcome-message">
+                    <h1>Cari Rokok Favorit</h1>
+                    <p>Temukan di toko terdekat Anda</p>
+                </div>
+                
+                <!-- Search Box -->
+                <div class="search-box-main">
+                    <div class="search-input-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" 
+                               id="mainSearch" 
+                               placeholder="Cari merek rokok..."
+                               autocomplete="off">
+                        <button class="clear-search" id="clearSearchBtn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <button class="search-btn" id="mainSearchBtn">
+                        <i class="fas fa-search"></i>
+                        Cari
+                    </button>
+                </div>
+
+                <!-- Quick Filters -->
+                <div class="quick-filters">
+                    <button class="filter-chip active" data-filter="all">Semua</button>
+                    <button class="filter-chip" data-filter="populer">Populer</button>
+                    <button class="filter-chip" data-filter="terdekat">Terdekat</button>
+                    <button class="filter-chip" data-filter="murah">Harga Terbaik</button>
+                </div>
+            </section>
+
+            <!-- Popular Brands Section -->
+            <section class="section-popular">
+                <div class="section-header">
+                    <h2><i class="fas fa-fire"></i> Merek Populer</h2>
+                    <a href="#all-brands" class="see-all">Lihat Semua</a>
+                </div>
+                
+                <div class="brands-scroll">
+                    <div class="brands-container" id="popularBrands">
+                        <!-- Brands loaded by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nearby Stores Section -->
+            <section id="nearby" class="section-stores">
+                <div class="section-header">
+                    <h2><i class="fas fa-store"></i> Toko Terdekat</h2>
+                    <button class="map-toggle" id="mapToggleBtn">
+                        <i class="fas fa-map"></i> Peta
+                    </button>
+                </div>
+                
+                <div class="stores-list" id="storesList">
+                    <!-- Stores loaded by JS -->
+                </div>
+                
+                <!-- Map View (Hidden by default on mobile) -->
+                <div class="map-view" id="mapView">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Peta toko terdekat</p>
+                        <small>Integrasi Google Maps</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- All Brands Section -->
+            <section id="brands" class="section-all-brands">
+                <div class="section-header">
+                    <h2><i class="fas fa-list"></i> Semua Merek</h2>
+                    <div class="sort-options">
+                        <select id="sortBrands">
+                            <option value="name">Nama A-Z</option>
+                            <option value="popular">Paling Populer</option>
+                            <option value="stock">Stok Terbanyak</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Factory Filter -->
+                <div class="factory-filter">
+                    <div class="factory-scroll">
+                        <button class="factory-btn active" data-factory="all">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Semua</span>
+                        </button>
+                        <button class="factory-btn" data-factory="sampoerna">
+                            <i class="fas fa-industry"></i>
+                            <span>Sampoerna</span>
+                        </button>
+                        <button class="factory-btn" data-factory="djarum">
+                            <i class="fas fa-industry"></i>
+                            <span>Djarum</span>
+                        </button>
+                        <button class="factory-btn" data-factory="gudang">
+                            <i class="fas fa-industry"></i>
+                            <span>Gudang Garam</span>
+                        </button>
+                        <button class="factory-btn" data-factory="bentoel">
+                            <i class="fas fa-industry"></i>
+                            <span>Bentoel</span>
+                        </button>
+                        <button class="factory-btn" data-factory="lainnya">
+                            <i class="fas fa-ellipsis-h"></i>
+                            <span>Lainnya</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="all-brands-grid" id="allBrands">
+                    <!-- All brands loaded by JS -->
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="section-how">
+                <div class="section-header">
+                    <h2><i class="fas fa-question-circle"></i> Cara Pakai</h2>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-icon">1</div>
+                        <i class="fas fa-search"></i>
+                        <h4>Cari</h4>
+                        <p>Cari rokok favorit</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">2</div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Temukan</h4>
+                        <p>Lihat toko terdekat</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">3</div>
+                        <i class="fas fa-directions"></i>
+                        <h4>Pergi</h4>
+                        <p>Dapatkan petunjuk</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">4</div>
+                        <i class="fas fa-shopping-bag"></i>
+                        <h4>Beli</h4>
+                        <p>Ambil di toko</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Floating Action Button -->
+        <button class="fab" id="fabBtn">
+            <i class="fas fa-filter"></i>
+        </button>
     </div>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Cari Rokok Favorit Anda di Toko Terdekat</h1>
-                    <p>Temukan 50+ merek rokok dari 10 pabrik berbeda di warung dan toko sekitar Anda</p>
-                    
-                    <!-- Search Bar -->
-                    <div class="search-container">
-                        <div class="search-box">
-                            <i class="fas fa-search"></i>
-                            <input type="text" id="searchInput" placeholder="Cari merek rokok (contoh: Marlboro, Sampoerna, Djarum...)">
-                            <button id="searchBtn">Cari</button>
-                        </div>
-                        <div class="location-picker">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span id="locationText">Deteksi lokasi otomatis</span>
-                            <button id="locationBtn">Ganti Lokasi</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ilustrasi toko rokok">
-                </div>
+    <!-- Store Detail Modal -->
+    <div class="modal" id="storeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="storeModalTitle"></h3>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
             </div>
-        </section>
-
-        <!-- Popular Brands Section -->
-        <section class="popular-brands">
-            <div class="container">
-                <h2><i class="fas fa-fire"></i> Merek Paling Dicari</h2>
-                <div class="brands-grid" id="popularBrands">
-                    <!-- Brands akan dimuat oleh JavaScript -->
-                </div>
+            <div class="modal-body" id="storeModalBody">
+                <!-- Content loaded by JS -->
             </div>
-        </section>
-
-        <!-- Nearby Stores Section -->
-        <section id="nearby" class="nearby-stores">
-            <div class="container">
-                <h2><i class="fas fa-store"></i> Toko Terdekat</h2>
-                <div class="stores-container">
-                    <div class="stores-list" id="storesList">
-                        <!-- Toko akan dimuat oleh JavaScript -->
-                    </div>
-                    <div class="map-container">
-                        <div class="map-placeholder">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <p>Peta akan menampilkan toko-toko terdekat</p>
-                            <p class="small">Integrasi Google Maps bisa ditambahkan</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- All Brands Section -->
-        <section id="brands" class="all-brands">
-            <div class="container">
-                <h2><i class="fas fa-list"></i> Semua Merek Tersedia</h2>
-                <div class="filter-brands">
-                    <div class="filter-options">
-                        <button class="filter-btn active" data-filter="all">Semua</button>
-                        <button class="filter-btn" data-filter="sampoerna">Sampoerna</button>
-                        <button class="filter-btn" data-filter="djarum">Djarum</button>
-                        <button class="filter-btn" data-filter="gudang">Gudang Garam</button>
-                        <button class="filter-btn" data-filter="bentoel">Bentoel</button>
-                        <button class="filter-btn" data-filter="others">Lainnya</button>
-                    </div>
-                </div>
-                <div class="brands-full-grid" id="allBrands">
-                    <!-- Semua merek akan dimuat oleh JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- How It Works Section -->
-        <section class="how-it-works">
-            <div class="container">
-                <h2><i class="fas fa-question-circle"></i> Cara Menggunakan</h2>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <i class="fas fa-search-location"></i>
-                        <h3>Cari Rokok</h3>
-                        <p>Cari merek rokok favorit Anda</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <i class="fas fa-map-marked-alt"></i>
-                        <h3>Lihat Lokasi</h3>
-                        <p>Temukan toko terdekat yang memiliki stok</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <i class="fas fa-directions"></i>
-                        <h3>Dapatkan Petunjuk</h3>
-                        <p>Dapatkan petunjuk arah ke toko tersebut</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <i class="fas fa-shopping-bag"></i>
-                        <h3>Beli Rokok</h3>
-                        <p>Kunjungi toko dan beli rokok favorit Anda</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-smoking"></i> RokokTersedia</h3>
-                    <p>Aplikasi pencari rokok terdekat untuk konsumen Indonesia</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Link Cepat</h3>
-                    <a href="#home">Beranda</a>
-                    <a href="#search">Cari Rokok</a>
-                    <a href="#nearby">Toko Terdekat</a>
-                    <a href="#brands">Semua Merek</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Untuk Toko</h3>
-                    <a href="#">Daftarkan Toko Anda</a>
-                    <a href="#">Login Toko</a>
-                    <a href="#">Bantuan</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Kontak</h3>
-                    <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
-                    <p><i class="fas fa-envelope"></i> info@rokoktersedia.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 RokokTersedia. Hak cipta dilindungi. Hanya untuk pengguna dewasa.</p>
-                <p class="disclaimer">Merokok dapat menyebabkan kanker, serangan jantung, impotensi, dan gangguan kehamilan dan janin.</p>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="callStoreBtn">
+                    <i class="fas fa-phone"></i> Telepon
+                </button>
+                <button class="btn-primary" id="directionsBtn">
+                    <i class="fas fa-directions"></i> Petunjuk Arah
+                </button>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- Store Detail Modal -->
-    <div id="storeModal" class="modal">
+    <!-- Filter Modal -->
+    <div class="modal filter-modal" id="filterModal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div id="storeDetailContent">
-                <!-- Detail toko akan dimuat di sini -->
+            <div class="modal-header">
+                <h3>Filter Pencarian</h3>
+                <button class="modal-close" id="closeFilterBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="filter-section">
+                    <h4>Jarak Maksimal</h4>
+                    <div class="distance-options">
+                        <button class="distance-option active">1 km</button>
+                        <button class="distance-option">3 km</button>
+                        <button class="distance-option">5 km</button>
+                        <button class="distance-option">10 km</button>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <h4>Harga</h4>
+                    <div class="price-slider">
+                        <input type="range" min="10000" max="50000" value="30000" class="slider" id="priceRange">
+                        <div class="price-labels">
+                            <span>Rp 10.000</span>
+                            <span id="currentPrice">Rp 30.000</span>
+                            <span>Rp 50.000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <h4>Status Toko</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span>Sedang Buka</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span>Stok Tersedia</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="resetFilterBtn">Reset</button>
+                <button class="btn-primary" id="applyFilterBtn">Terapkan Filter</button>
             </div>
         </div>
     </div>
