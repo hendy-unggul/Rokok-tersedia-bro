@@ -393,6 +393,10 @@ button {
     font-weight: 600;
     font-size: 1.1rem;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .store-address {
@@ -629,6 +633,50 @@ button {
 
 .close-modal:hover {
     color: var(--dark);
+}
+
+/* Additional Styles for Dynamic Content */
+.store-status {
+    font-size: 0.8rem;
+    font-weight: normal;
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.store-status.open {
+    background-color: #d5f4e6;
+    color: var(--success);
+}
+
+.store-status.closed {
+    background-color: #ffeaea;
+    color: var(--primary);
+}
+
+.store-rating {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.find-store-btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50px;
+    font-weight: 500;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.find-store-btn:hover {
+    background-color: var(--primary-dark);
 }
 
 /* Responsive Design */
